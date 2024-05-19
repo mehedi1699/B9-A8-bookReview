@@ -12,7 +12,7 @@ const BookDetails = () => {
     const book = books.find(book => book.bookId === strId)
     console.log(book);
 
-    const { bookId, image, author, bookName, category, rating, tags, review } = book;
+    const { bookId,publisher,yearOfPublishing, image,totalPages, author, bookName, category, rating, tags, review } = book;
 
 
 
@@ -30,9 +30,17 @@ const BookDetails = () => {
                     <p><span className="font-semibold text-xl mt-4">Tags :</span></p>
                     <ul className="flex gap-3 ml-mt-4">
                         {
-                            tags.map((tag, idx) => <li className="bg-gray-200 font-semibold text-[#23BE0A] p-2 rounded-full" key={idx}>{tag}</li>)
+                            tags.map((tag, idx) => <li className="bg-gray-200 font-semibold text-[#23BE0A] p-2 rounded-full" key={idx}># {tag}</li>)
                         }
                     </ul>
+                </div>
+                <div className="space-y-2 mt-6">
+                   
+                    <p>Number of Pages : <span className="font-semibold ml-2">{totalPages} Pages</span></p>
+                    <p>Publisher : <span className="font-semibold ml-2">{publisher} </span></p>
+                    <p>Year of Publishing : <span className="font-semibold ml-2">{yearOfPublishing} </span></p>
+                    <p>Rating : <span className="font-semibold ml-2">{rating} </span></p>
+
                 </div>
                 <div className=" mt-8 space-x-12">
                     <button className="btn btn-primary px-8 hover:bg-green-400 border-none hover:text-black">Read</button>
