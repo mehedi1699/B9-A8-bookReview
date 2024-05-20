@@ -1,5 +1,5 @@
 import { useLoaderData, useParams } from "react-router-dom";
-import { getReadBooks, saveReadBooks } from "../Utility/localStorage";
+import { getReadBooks, saveReadBooks,saveReadListBooks,saveWishListedBooks } from "../Utility/localStorage";
 
   import { ToastContainer, toast } from 'react-toastify';
 
@@ -21,7 +21,6 @@ const BookDetails = () => {
        const storedReadBooks = getReadBooks();
     
        const isExist = storedReadBooks.find(bookid=> bookid === strId )
-       
        if(isExist === strId){
         toast.error('You have Already Read this Books')
        }
@@ -29,6 +28,11 @@ const BookDetails = () => {
         toast.success('Books Added To Read List')
        }
        saveReadBooks(strId);
+       saveReadListBooks(book)
+    }
+
+    const handleWishList=()=>{
+        saveWishListedBooks(book);
     }
 
 
@@ -60,7 +64,7 @@ const BookDetails = () => {
                 </div>
                 <div className=" mt-8 space-x-12">
                     <button onClick={handleReadBook} className="btn btn-primary px-8 hover:bg-green-400 border-none hover:text-black">Read</button>
-                    <button className="btn btn-primary px-8 hover:bg-green-400 border-none hover:text-black">Wishlist</button>
+                    <button onClick={handleWishList} className="btn btn-primary px-8 hover:bg-green-400 border-none hover:text-black">Wishlist</button>
                 </div>
 
             </div>
