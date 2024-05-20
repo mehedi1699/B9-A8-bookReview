@@ -1,5 +1,9 @@
 import { useLoaderData, useParams } from "react-router-dom";
+import { getReadBooks, saveReadBooks } from "../Utility/localStorage";
 
+  import { ToastContainer, toast } from 'react-toastify';
+
+  import 'react-toastify/dist/ReactToastify.css';
 
 const BookDetails = () => {
 
@@ -10,15 +14,27 @@ const BookDetails = () => {
     // console.log(id)
     // console.log(books)
     const book = books.find(book => book.bookId === strId)
-    console.log(book);
 
-    const { bookId,publisher,yearOfPublishing, image,totalPages, author, bookName, category, rating, tags, review } = book;
+    const {publisher,yearOfPublishing, image,totalPages, author, bookName, category, rating, tags, review } = book;
 
+    const handleReadBook =()=>{
+       const storedReadBooks = getReadBooks();
+    
+       const isExist = storedReadBooks.find(bookid=> bookid === strId )
+       
+       if(isExist === strId){
+        toast.error('You have Already Read this Books')
+       }
+       else {
+        toast.success('Books Added To Read List')
+       }
+       saveReadBooks(strId);
+    }
 
 
     return (
         <div className="card h-3/5 card-side  bg-base-100 shadow-xl">
-            <img className="p-8" src={image} width={540} alt="Shoes" />
+            <img className="p-8" src={image} width={400} alt="Shoes" />
             <div className="w-full p-8">
                 <h2 className="card-title text-4xl mb-4">{bookName}</h2>
                 <p className="font-semibold text-xl">by: {author}</p>
@@ -43,11 +59,12 @@ const BookDetails = () => {
 
                 </div>
                 <div className=" mt-8 space-x-12">
-                    <button className="btn btn-primary px-8 hover:bg-green-400 border-none hover:text-black">Read</button>
+                    <button onClick={handleReadBook} className="btn btn-primary px-8 hover:bg-green-400 border-none hover:text-black">Read</button>
                     <button className="btn btn-primary px-8 hover:bg-green-400 border-none hover:text-black">Wishlist</button>
                 </div>
 
             </div>
+            <ToastContainer></ToastContainer>
         </div>
     );
 };
