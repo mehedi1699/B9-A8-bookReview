@@ -5,7 +5,7 @@ import WishCard from "./WishCard";
 
 const WishList = () => {
     const wishList = getStoredWishListedBook()
-    console.log(wishList)
+    // console.log(wishList)
     
 
     return (

@@ -22,7 +22,7 @@ const BookDetails = () => {
     
        const isExist = storedReadBooks.find(bookid=> bookid === strId )
        if(isExist === strId){
-        toast.error('You have Already Read this Books')
+        toast.error('Already Added To Read List')
        }
        else {
         toast.success('Books Added To Read List')

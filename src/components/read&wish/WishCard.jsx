@@ -1,4 +1,7 @@
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const WishCard = ({ wishbook }) => {
@@ -31,6 +34,7 @@ const WishCard = ({ wishbook }) => {
                     </div>
                 </div>
             </div>
+            <ToastContainer></ToastContainer>
         </div>
     );
 };
