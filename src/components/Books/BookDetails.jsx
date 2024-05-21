@@ -4,23 +4,34 @@ import { getReadBooks, saveReadBooks,saveReadListBooks,saveWishListedBooks } fro
   import { ToastContainer, toast } from 'react-toastify';
 
   import 'react-toastify/dist/ReactToastify.css';
+import { useEffect, useState } from "react";
 
 const BookDetails = () => {
+    // const [books,setBooks] = useState()
+    // useEffect(()=>{
+    //     fetch('../../../public/books.json')
+    //     .then(res =>res.JSON())
+    //     .then(data => setBooks(data))
+    // },[])
+    // console.log(books)
 
     const books = useLoaderData();
-    // console.log(books);
+    // console.log(books)
+    // console.log(typeof books)
     const { id } = useParams();
     const strId = parseInt(id);
-    // console.log(id)
+    // console.log(typeof strId)
+    // console.log(strId)
     // console.log(books)
-    const book = books.find(book => book.bookId === strId)
+    const book= books.find(book=> book.bookId === strId)
+    // console.log(book)
 
     const {publisher,yearOfPublishing, image,totalPages, author, bookName, category, rating, tags, review } = book;
 
     const handleReadBook =()=>{
        const storedReadBooks = getReadBooks();
     
-       const isExist = storedReadBooks.find(bookid=> bookid === strId )
+       const isExist = storedReadBooks.find(bookid => bookid === strId )
        if(isExist === strId){
         toast.error('Already Added To Read List')
        }
@@ -38,6 +49,7 @@ const BookDetails = () => {
 
     return (
         <div className="card h-3/5 card-side  bg-base-100 shadow-xl">
+            <h1>Books here</h1>
             <img className="p-8" src={image} width={400} alt="Shoes" />
             <div className="w-full p-8">
                 <h2 className="card-title text-4xl mb-4">{bookName}</h2>

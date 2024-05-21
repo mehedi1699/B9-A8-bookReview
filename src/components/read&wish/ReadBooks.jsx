@@ -1,12 +1,12 @@
 import { getReadListBooks } from "../Utility/localStorage";
 import REadBookcard from "./REadBookcard";
-import WishCard from "./WishCard";
 
 
 
 const ReadBooks = () => {
 
     const readList = getReadListBooks()
+    console.log(typeof readList)
 
     // console.log( readList)
 

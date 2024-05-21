@@ -9,7 +9,7 @@ const Books = () => {
     const [books,setBooks]= useState([]);
 
     useEffect(()=>{
-        fetch('../../../public/books.json')
+        fetch('https://raw.githubusercontent.com/mehedi1699/B9-A8-bookReview/main/public/books.json')
         .then(res => res.json())
         .then(data => setBooks(data))
     },[])
