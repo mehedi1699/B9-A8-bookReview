@@ -6,14 +6,11 @@ const ListedBooks = () => {
 
     const [tabIndex, setTabIndex] = useState(0);
 
-    
-
-
 
 
     return (
         <div>
-            <h1 className="text-3xl bg-gray-300 p-8 text-center font-bold rounded-3xl mb-8" >Books</h1>
+            <h1 className="text-3xl  bg-gray-300 p-8 text-center font-bold rounded-3xl mb-8" >Books</h1>
 
             <div className="flex items-center  overflow-x-auto overflow-y-hidden sm:justify-start flex-nowrap bg-gray-100 text-gray-800">
                 <Link

@@ -14,8 +14,9 @@ const ReadBooks = () => {
     // const readBook = books.find(book=> book.bookId ===)
     return (
         <div>
+            
             {
-                readList.map((readBook,idx)=> <REadBookcard key={idx} readBook={readBook}></REadBookcard>)
+                readList.map((readBook, idx) => <REadBookcard key={idx} readBook={readBook}></REadBookcard>)
             }
         </div>
     );
